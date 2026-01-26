@@ -1,7 +1,6 @@
 
 .globl factorial
 
-
 .section .text 
 factorial:
 
