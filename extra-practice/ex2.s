@@ -1,5 +1,5 @@
 
-# Given 2 32-bit inputs from memory, output larger value 
+# Given two 32-bit integers stored in memory, determine and output the larger value.
 
 .globl _start 
 
