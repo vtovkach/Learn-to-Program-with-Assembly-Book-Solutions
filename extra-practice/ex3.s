@@ -14,13 +14,29 @@ positives:
 negatives: 
     .skip 8
 
+# Constants 
+
 .equ ARRAY_SIZE, (end_array - beg_array) / 8
 
 .section .text
 _start:
+    movq $ARRAY_SIZE, %rcx  
+    movq $0, %rdx   
+
+beg_loop:
+    movq beg_array(,%rdx, 8), %rax 
+    test %rax, %rax 
+    js neg
+    incq positives 
+    jmp loop_back 
+
+neg:
+    incq negatives 
+
+loop_back:
+    inc %rdx
+    loop beg_loop 
 
 end:
-
     movq $60, %rax 
     syscall 
-
