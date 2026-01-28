@@ -15,7 +15,6 @@ negatives:
     .skip 8
 
 # Constants 
-
 .equ ARRAY_SIZE, (end_array - beg_array) / 8
 
 .section .text
@@ -38,5 +37,6 @@ loop_back:
     loop beg_loop 
 
 end:
+    movq $0, %rdi 
     movq $60, %rax 
     syscall 
